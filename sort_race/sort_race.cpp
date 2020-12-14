@@ -1,8 +1,10 @@
 ﻿// sort_race.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-
+#include <string>
 #include <array>
 #include <vector>
+
+
 
 using namespace std;
 
@@ -16,7 +18,8 @@ void Run(string method_name, Participant p, vector<int> data);
 }
 
 //place your method name here
-vector<int> Quick_Sort(vector<int>);
+vector<int> std_sort(vector<int>);
+vector<int> QuickSort(vector<int>);
 
 
 int main()
@@ -25,7 +28,8 @@ int main()
     for (int n : N)
     {
         auto data = GenerateData(n);
-        RUN(Quick_Sort);
+        RUN(std_sort);
+        RUN(QuickSort);
 		//run your method here
     }
 }
