@@ -29,7 +29,7 @@ void Quicky(vector<int>& data, int low, int high)
 	return;
 }
 
-vector <int> QuickSort(vector<int> data)
+vector <int> QuickSortByKaryagin(vector<int> data)
 {
 	Quicky(data, 0, data.size() - 1);
 	return data;
