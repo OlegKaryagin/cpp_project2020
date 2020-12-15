@@ -11,33 +11,33 @@ vector <int>QuickSort(vector<int> mass)
 	Stack.push_back(sorted.size() - 1);
 	while (!Stack.empty())
 	{
-		int last = Stack.back();
+		int high = Stack.back();
 		Stack.pop_back();
-		int first = Stack.back();
+		int low = Stack.back();
 		Stack.pop_back();
-		int it_i = first - 1;
-		for (int it_j = first; it_j < last; it_j++)
+		int first = low - 1;
+		for (int last = low; last < high; last++)
 		{
-			if (sorted[it_j] <= sorted[last])
+			if (sorted[last] <= sorted[high])
 			{
-				if (it_i != it_j)
+				if (first != last)
 				{
-					it_i++;
-					swap(sorted[it_i], sorted[it_j]);
+					first++;
+					swap(sorted[first], sorted[last]);
 				}
 			}
 		}
-		swap(sorted[it_i + 1], sorted[last]);
-		int p = it_i + 1;
-		if (p - first > 1)
+		swap(sorted[first + 1], sorted[high]);
+		int p = first + 1;
+		if (p - low > 1)
 		{
-			Stack.push_back(first);
+			Stack.push_back(low);
 			Stack.push_back(p - 1);
 		}
-		if (last - p > 1)
+		if (high - p > 1)
 		{
 			Stack.push_back(p + 1);
-			Stack.push_back(last);
+			Stack.push_back(high);
 		}
 	}
 	return sorted;
