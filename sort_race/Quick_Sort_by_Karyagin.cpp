@@ -44,7 +44,7 @@ vector <int>QuickSort(vector<int> mass)
 }
 
 
-vector <double>QuickSortForDouble(vector<double> mass)
+vector <double>QuickSortDouble(vector<double> mass)
 {
 	vector<double> sorted = mass;
 	vector<int> Stack;
