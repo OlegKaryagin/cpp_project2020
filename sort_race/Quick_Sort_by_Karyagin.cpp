@@ -3,83 +3,34 @@
 using namespace std;
 
 
-vector <int>QuickSortByKaryagin(vector<int> mass)
+void Quicky(vector<int>& data, int b, int e)
 {
-	vector<int> sorted = mass;
-	vector<int> Stack;
-	Stack.push_back(0);
-	Stack.push_back(sorted.size() - 1);
-	while (!Stack.empty())
+	int it_i = b - 1;
+	for (int it_j = b; it_j < e; it_j++)
 	{
-		int high = Stack.back();
-		Stack.pop_back();
-		int low = Stack.back();
-		Stack.pop_back();
-		int first = low - 1;
-		for (int last = low; last < high; last++)
+		if (data[it_j] <= data[e])
 		{
-			if (sorted[last] <= sorted[high])
+			if (it_i != it_j)
 			{
-				if (first != last)
-				{
-					first++;
-					swap(sorted[first], sorted[last]);
-				}
+				it_i++;
+				swap(data[it_i],data[it_j]);
 			}
 		}
-		swap(sorted[first + 1], sorted[high]);
-		int p = first + 1;
-		if (p - low > 1)
-		{
-			Stack.push_back(low);
-			Stack.push_back(p - 1);
-		}
-		if (high - p > 1)
-		{
-			Stack.push_back(p + 1);
-			Stack.push_back(high);
-		}
 	}
-	return sorted;
+	swap(data[it_i + 1],data[e]);
+	if (it_i  - b > 0)
+	{
+		Quicky(data, b, it_i);
+	}
+	if (e - it_i > 2)
+	{
+		Quicky(data, it_i + 2, e);
+	}
+	return;
 }
 
-
-vector <double>QuickSortDoubleByKaryagin(vector<double> mass)
+vector <int> QuickSort(vector<int> data)
 {
-	vector<double> sorted = mass;
-	vector<int> Stack;
-	Stack.push_back(0);
-	Stack.push_back(sorted.size() - 1);
-	while (!Stack.empty())
-	{
-		int high = Stack.back();
-		Stack.pop_back();
-		int low = Stack.back();
-		Stack.pop_back();
-		int first = low - 1;
-		for (int last = low; last < high; last++)
-		{
-			if (sorted[last] <= sorted[high])
-			{
-				if (first != last)
-				{
-					first++;
-					swap(sorted[first], sorted[last]);
-				}
-			}
-		}
-		swap(sorted[first + 1], sorted[high]);
-		int p = first + 1;
-		if (p - low > 1)
-		{
-			Stack.push_back(low);
-			Stack.push_back(p - 1);
-		}
-		if (high - p > 1)
-		{
-			Stack.push_back(p + 1);
-			Stack.push_back(high);
-		}
-	}
-	return sorted;
+	Quicky(data, 0, data.size() - 1);
+	return data;
 }
