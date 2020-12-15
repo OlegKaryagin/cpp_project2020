@@ -3,28 +3,28 @@
 using namespace std;
 
 
-void Quicky(vector<int>& data, int b, int e)
+void Quicky(vector<int>& data, int low, int high)
 {
-	int it_i = b - 1;
-	for (int it_j = b; it_j < e; it_j++)
+	int first =low - 1;
+	for (int second = low; second < high; second++)
 	{
-		if (data[it_j] <= data[e])
+		if (data[second] <= data[high])
 		{
-			if (it_i != it_j)
+			if (first != second)
 			{
-				it_i++;
-				swap(data[it_i],data[it_j]);
+				first++;
+				swap(data[first],data[second]);
 			}
 		}
 	}
-	swap(data[it_i + 1],data[e]);
-	if (it_i  - b > 0)
+	swap(data[first + 1],data[high]);
+	if (first  - low > 0)
 	{
-		Quicky(data, b, it_i);
+		Quicky(data, low, first);
 	}
-	if (e - it_i > 2)
+	if (high - first > 2)
 	{
-		Quicky(data, it_i + 2, e);
+		Quicky(data, first + 2, high);
 	}
 	return;
 }
