@@ -3,7 +3,7 @@
 using namespace std;
 
 
-vector <int>QuickSort(vector<int> mass)
+vector <int>QuickSortByKaryagin(vector<int> mass)
 {
 	vector<int> sorted = mass;
 	vector<int> Stack;
@@ -44,7 +44,7 @@ vector <int>QuickSort(vector<int> mass)
 }
 
 
-vector <double>QuickSortDouble(vector<double> mass)
+vector <double>QuickSortDoubleByKaryagin(vector<double> mass)
 {
 	vector<double> sorted = mass;
 	vector<int> Stack;
