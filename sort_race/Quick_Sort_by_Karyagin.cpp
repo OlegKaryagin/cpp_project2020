@@ -2,8 +2,8 @@
 
 using namespace std;
 
-
-void Quicky(vector<int>& data, int low, int high)
+template <typename T>
+void Quicky(vector<T>& data, int low, int high)
 {
 	int first =low - 1;
 	for (int second = low; second < high; second++)
@@ -29,7 +29,14 @@ void Quicky(vector<int>& data, int low, int high)
 	return;
 }
 
+
 vector <int> QuickSortByKaryagin(vector<int> data)
+{
+	Quicky(data, 0, data.size() - 1);
+	return data;
+}
+
+vector <double> QuickSortByKaryagin(vector<double> data)
 {
 	Quicky(data, 0, data.size() - 1);
 	return data;
